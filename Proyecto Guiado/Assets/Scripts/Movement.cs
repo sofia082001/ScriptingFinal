@@ -27,8 +27,8 @@ namespace Maria
         }
         public void Move()
         {
-            Vector3 dirZ = transform.forward;
-            Vector3 velocityZ = linearspeed * dirZ * Input.GetAxis(vertical);
+            Vector3 dirZ = transform.forward; //mirar pal frente
+            Vector3 velocityZ = linearspeed * dirZ * Input.GetAxis(vertical); //le da velocidad en z 
             transform.position += velocityZ * Time.deltaTime;
         }
         public void Rotate()

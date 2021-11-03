@@ -5,15 +5,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController :MonoBehaviour
 {
     public float health = 100;
     public Text winner;
     Movement movement;
-    Gun[] guns;
+    //Gun[] guns;
+    Gun gun;
     //GameObject  player1, player2;
-    [SerializeField] Slider healthbar;
-    public void Hit(float force)
+    public Slider healthbar;
+
+    /*public void Hit(float force)
     {
         health -= force;
         healthbar.value = health;
@@ -21,12 +23,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }  
+}*/
+
     void Start()
     {
 
         movement = GetComponent<Movement>();
-        guns = GetComponentsInChildren<Gun>();
+        //guns = GetComponentsInChildren<Gun>();
+        gun = GetComponentInChildren<Gun>();
     }
     void Update()
     {
@@ -34,11 +38,13 @@ public class PlayerController : MonoBehaviour
         movement.Sound();
         movement.SetLights();
         movement.Rotate();
-        for (int i = 0; i < guns.Length; i++)
+        gun.Rotate();
+        gun.Shoot();
+        /*for (int i = 0; i < guns.Length; i++)
         {
             guns[i].Rotate();
             guns[i].Shoot();
-        }      
+        } */     
     }
     public void Heal(float recover)
     {

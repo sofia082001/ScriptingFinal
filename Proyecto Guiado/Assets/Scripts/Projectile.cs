@@ -5,7 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     
-    [SerializeField] float force = 10, lifetime = 0;
+    public float force = 10, lifetime = 0;
+    public HealthSO healthso;
     void Update()
     {
         lifetime += Time.deltaTime;
@@ -17,7 +18,8 @@ public class Projectile : MonoBehaviour
         if(target.CompareTag("Player"))
         {
             PlayerController player = target.GetComponent<PlayerController>();
-            player.Hit(force);
+            healthso.OnHealthChanges(force, player);
+            //player.Hit();
             Destroy(gameObject); //Destruir el proyector para que no haga daño 2 veces
 
         }

@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   lifetime: 0
+  healthso: {fileID: 11400000, guid: b2c9ac78573ea2b4bbdf42d6189d3ed3, type: 2}
